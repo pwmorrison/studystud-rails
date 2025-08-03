@@ -1,0 +1,85 @@
+{
+    "frames": [
+        {
+            "filename": "back_left_wall",
+            "frame": {"x":32,"y":0,"w":16,"h":32},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":16,"h":32},
+            "sourceSize": {"w":16,"h":32},
+            "pivot": {"x":0.5,"y":0.5}
+        },
+        {
+            "filename": "back_right_wall",
+            "frame": {"x":80,"y":0,"w":16,"h":32},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":16,"h":32},
+            "sourceSize": {"w":16,"h":32},
+            "pivot": {"x":0.5,"y":0.5}
+        },
+        {
+            "filename": "back_wall",
+            "frame": {"x":48,"y":32,"w":16,"h":32},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":16,"h":32},
+            "sourceSize": {"w":16,"h":32},
+            "pivot": {"x":0.5,"y":0.5}
+        },
+        {
+            "filename": "left_wall",
+            "frame": {"x":32,"y":32,"w":16,"h":16},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+            "sourceSize": {"w":16,"h":16},
+            "pivot": {"x":0.5,"y":0.5}
+        },
+        {
+            "filename": "right_wall",
+            "frame": {"x":80,"y":32,"w":16,"h":16},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+            "sourceSize": {"w":16,"h":16},
+            "pivot": {"x":0.5,"y":0.5}
+        },
+        {
+            "filename": "front_wall",
+            "frame": {"x":48,"y":80,"w":16,"h":16},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+            "sourceSize": {"w":16,"h":16},
+            "pivot": {"x":0.5,"y":0.5}
+        },
+        {
+            "filename": "front_left_wall",
+            "frame": {"x":32,"y":80,"w":16,"h":16},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+            "sourceSize": {"w":16,"h":16},
+            "pivot": {"x":0.5,"y":0.5}
+        },
+        {
+            "filename": "front_right_wall",
+            "frame": {"x":80,"y":80,"w":16,"h":16},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+            "sourceSize": {"w":16,"h":16},
+            "pivot": {"x":0.5,"y":0.5}
+        }
+    ],
+    "meta": {
+        "app": "http://www.codeandweb.com/texturepacker",
+        "version": "1.0",
+        "image": "Room_Builder_3d_walls_16x16.png",
+        "format": "RGBA8888",
+        "size": {"w":384,"h":944},
+        "scale": "1",
+        "smartupdate": ""
+    }
+}
