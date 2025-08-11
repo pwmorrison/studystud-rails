@@ -10,46 +10,46 @@ const COLYSEUS_SERVER_URL = "wss://au-syd-d0b58a29.colyseus.cloud";
 //const characterNames : readonly string[] = [
 const characterNames = [
   "Adam",
-  "Alex",
-  "Amelia",
-  "Ash",
-  "Bob",
-  "Bouncer",
-  "Bruce",
-  "Butcher_2",
-  "Butcher",
-  "Chef_Alex",
-  "Chef_Lucy",
-  "Chef_Molly",
-  "Chef_Pier",
-  "Chef_Rob",
-  "Dan",
-  "Doctor_1",
-  "Doctor_2",
-  "Edward",
-  "Fishmonger_1",
-  "Fishmonger_2",
-  "Halloween_Kid_1",
-  "Halloween_Kid_2",
-  "Kid_Abby",
-  "Kid_Karen",
-  "Kid_Mitty",
-  "Kid_Oscar",
-  "Kid_Romeo",
-  "Kid_Tim",
-  "Lucy",
-  "Molly",
-  "Nurse_1",
-  "Nurse_2",
-  "Old_man_Josh",
-  "Old_woman_Jenny",
-  "Pier",
-  "Prisoner_1",
-  "Prisoner_2",
-  "Prisoner_3",
-  "Rob",
-  "Roki",
-  "Samuel",
+  // "Alex",
+  // "Amelia",
+  // "Ash",
+  // "Bob",
+  // "Bouncer",
+  // "Bruce",
+  // "Butcher_2",
+  // "Butcher",
+  // "Chef_Alex",
+  // "Chef_Lucy",
+  // "Chef_Molly",
+  // "Chef_Pier",
+  // "Chef_Rob",
+  // "Dan",
+  // "Doctor_1",
+  // "Doctor_2",
+  // "Edward",
+  // "Fishmonger_1",
+  // "Fishmonger_2",
+  // "Halloween_Kid_1",
+  // "Halloween_Kid_2",
+  // "Kid_Abby",
+  // "Kid_Karen",
+  // "Kid_Mitty",
+  // "Kid_Oscar",
+  // "Kid_Romeo",
+  // "Kid_Tim",
+  // "Lucy",
+  // "Molly",
+  // "Nurse_1",
+  // "Nurse_2",
+  // "Old_man_Josh",
+  // "Old_woman_Jenny",
+  // "Pier",
+  // "Prisoner_1",
+  // "Prisoner_2",
+  // "Prisoner_3",
+  // "Rob",
+  // "Roki",
+  // "Samuel",
 ];
 
 class GameScene extends Phaser.Scene {
@@ -105,6 +105,17 @@ class GameScene extends Phaser.Scene {
       "https://cdn.glitch.global/3e033dcd-d5be-4db4-99e8-086ae90969ec/ship_0001.png",
     );
 
+    // Read the asset URLs from the data attributes
+    const gameContainer = document.getElementById("game-container");
+    const characterIdlePngUrl = gameContainer.dataset.characterIdlePngUrl;
+    const characterRunPngUrl = gameContainer.dataset.characterRunPngUrl;
+    const floorPngUrl = gameContainer.dataset.floorPngUrl;
+    const floorJsonUrl = gameContainer.dataset.floorJsonUrl;
+    const wallsPngUrl = gameContainer.dataset.wallsPngUrl;
+    const wallsJsonUrl = gameContainer.dataset.wallsJsonUrl;
+    console.log("Floor PNG URL:", floorPngUrl);
+    console.log("Floor JSON URL:", floorJsonUrl);
+
     // Character idle
     // right - [0, 5]
     // up - [6, 11]
@@ -113,7 +124,7 @@ class GameScene extends Phaser.Scene {
     for (const n of characterNames) {
       this.load.spritesheet(
         `${n}_idle`,
-        `/assets/game/characters/${n}_idle_anim_16x16.png`,
+        characterIdlePngUrl,
         { frameWidth: 16, frameHeight: 32 },
       );
     }
@@ -126,22 +137,23 @@ class GameScene extends Phaser.Scene {
     for (const n of characterNames) {
       this.load.spritesheet(
         `${n}_run`,
-        `/assets/game/characters/${n}_run_16x16.png`,
+        characterRunPngUrl,
         { frameWidth: 16, frameHeight: 32 },
       );
     }
 
     console.log("Loading floors_atlas");
+    console.log(RAILS_ASSET_URL("game/Room_Builder_Floors_16x16.png"));
     this.load.atlas(
       "floors_atlas",
-      "/assets/game/Room_Builder_Floors_16x16.png",
-      "/assets/game/Room_Builder_Floors_16x16.json",
+      floorPngUrl,
+      floorJsonUrl,
     );
     console.log("Loading walls_atlas");
     this.load.atlas(
       "walls_atlas",
-      "/assets/game/Room_Builder_3d_walls_16x16.png",
-      "/assets/game/Room_Builder_3d_walls_16x16.json",
+      wallsPngUrl,
+      wallsJsonUrl,
     );
 
     this.cursorKeys = this.input.keyboard.createCursorKeys();
@@ -149,11 +161,6 @@ class GameScene extends Phaser.Scene {
 
   async create() {
     console.log("SCENE CREATE");
-
-    // if (!this.textures.exists('floors_atlas')) {
-    //     console.log('Texture floors_atlas not loaded!');
-    //     return;
-    //   }
 
     const game = this.game; // as MyGame;
     // const username = game.username;

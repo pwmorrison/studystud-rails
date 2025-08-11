@@ -10,6 +10,33 @@
 
     Play the game
 
-    <div data-controller="game" style="width: 800px; height: 600px;"></div>
+    <%# WARNING: For development debugging ONLY. Remove before committing or deploying. %>
+    <% if Rails.env.development? %>
+      <h2>Contents of the Public Directory</h2>
+      <pre><code>
+        <%
+          public_path = Rails.root.join('public')
+          # Using Dir.glob with '**/*' finds all files and folders recursively
+          paths = Dir.glob(public_path.join('**', '*')).map do |path|
+            # Make the path relative to the public directory for cleaner output
+            path.sub(public_path.to_s + '/', '')
+          end
+        %>
+        <%= paths.join("\n") %>
+      </code></pre>
+    <% end %>
+
+    <div
+        id="game-container"
+        data-controller="game"
+        style="width: 800px; height: 600px;"
+        data-floor-png-url="<%= asset_path('Room_Builder_Floors_16x16.png') %>"
+        data-floor-json-url="<%= asset_path('Room_Builder_Floors_16x16.json') %>"
+        data-walls-png-url="<%= asset_path('Room_Builder_3d_walls_16x16.png') %>"
+        data-walls-json-url="<%= asset_path('Room_Builder_3d_walls_16x16.json') %>"
+        data-character-idle-png-url="<%= asset_path('characters/Adam_idle_anim_16x16.png') %>"
+        data-character-run-png-url="<%= asset_path('characters/Adam_run_16x16.png') %>"
+    >
+    </div>
 
 </div>
