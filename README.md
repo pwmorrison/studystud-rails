@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## Authentication
+
+Authentication is provided by the new Rails 8 authentication generator.
+https://www.bigbinary.com/blog/rails-8-introduces-a-basic-authentication-generator

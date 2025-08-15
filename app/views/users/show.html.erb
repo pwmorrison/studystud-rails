@@ -1,0 +1,28 @@
+<h1 class="text-2xl font-bold mb-3"><%= @user.email_address %>'s Profile</h1>
+
+<h2 class="text-xl font-bold mb-3">Friends</h2>
+<ul class="list-disc list-inside pl-5 space-y-2">
+  <% @user.friends.each do |friend| %>
+    <li><%= friend.email %></li>
+  <% end %>
+</ul>
+
+<% if @user == Current.user %>
+  <h2 class="text-xl font-bold mb-3">Pending Friend Requests</h2>
+  <ul class="list-disc list-inside pl-5 space-y-2">
+    <% @user.pending_friends.each do |pending_friend| %>
+      <li>
+        <%= pending_friend.email_address %>
+        <%= button_to "Accept", friendship_path(pending_friend.id), method: :patch %>
+        <%= button_to "Decline", friendship_path(Friendship.find_by(user_id: pending_friend.id, friend_id: current_user.id).id), method: :delete %>
+      </li>
+    <% end %>
+  </ul>
+
+  <h2 class="text-xl font-bold mb-3">Sent Friend Requests</h2>
+  <ul class="list-disc list-inside pl-5 space-y-2">
+    <% @user.requested_friends.each do |requested_friend| %>
+      <li><%= requested_friend.email_address %> (Pending)</li>
+    <% end %>
+  </ul>
+<% end %>

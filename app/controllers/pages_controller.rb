@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @users = User.where.not(id: Current.user) # Show all users except the current one
     redirect_to new_session_path unless authenticated?
   end
 

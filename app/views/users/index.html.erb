@@ -1,8 +1,10 @@
-<div class="space-y-12">
+<h1>Users#index</h1>
 
-    <h1 class="text-2xl font-bold mb-3">Welcome, <%= Current.user.email_address %></h1>
+<h1 class="text-2xl font-bold mb-3">All Users</h1>
+<p class="text-base leading-relaxed text-gray-700">
+  Hi <%= Current.user.email_address %>, please select your friends
+</p>
 
-</div>
 
 <%# --- Section 1: Pending Requests You Received (Decline them) --- %>
   <h2 class="text-xl font-bold mb-3 mt-6">Pending Friend Requests</h2>
