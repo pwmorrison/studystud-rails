@@ -4,5 +4,11 @@
 
     <!--<%= link_to "Login", new_session_path %>-->
 
+    <div data-controller="timer">
+      <div id="timer-display" data-timer-target="output">00:00:00</div>
+      <button class="btn" data-action="click->timer#start">Start</button>
+      <button class="btn" data-action="click->timer#stop">Stop</button>
+      <button class="btn" data-action="click->timer#reset">Reset</button>
+    </div>
 </div>
 
