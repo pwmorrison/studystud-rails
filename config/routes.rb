@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :study_sessions
   get "users/index"
   get "users/show"
   resource :session
@@ -21,4 +22,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   get "game", to: "pages#game"
 
+  get "study", to: "study#new"
+  post "study", to: "study#create"
+  get "study/:id", to: "study#show"
 end

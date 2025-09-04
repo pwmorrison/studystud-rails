@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Study sessions" %>
+
+<h1 class="text-2xl font-bold mb-3">Study sessions</h1>
+
+<div id="study_sessions">
+  <% @study_sessions.each do |study_session| %>
+    <%= render study_session %>
+    <p>
+      <%= link_to "Show this study session", study_session %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New study session", new_study_session_path, class: "btn" %>

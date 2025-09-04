@@ -1,0 +1,11 @@
+<% content_for :title, "New study session" %>
+
+<h1 class="text-2xl font-bold mb-3">New study session</h1>
+
+<%= render "form", study_session: @study_session %>
+
+<br>
+
+<div>
+  <%= link_to "Back to study sessions", study_sessions_path %>
+</div>

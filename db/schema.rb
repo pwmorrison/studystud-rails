@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_11_063945) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_01_204605) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -59,6 +59,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_11_063945) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "study_sessions", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "duration"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "status"
+    t.integer "rating"
+    t.integer "user_id"
+    t.string "session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_study_sessions_on_session_id"
+    t.index ["user_id"], name: "index_study_sessions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email_address", null: false
     t.string "password_digest", null: false
@@ -72,4 +88,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_11_063945) do
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "sessions", "users"
+  add_foreign_key "study_sessions", "users"
 end

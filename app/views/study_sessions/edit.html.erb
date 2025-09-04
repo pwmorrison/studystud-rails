@@ -1,0 +1,12 @@
+<% content_for :title, "Editing study session" %>
+
+<h1>Editing study session</h1>
+
+<%= render "form", study_session: @study_session %>
+
+<br>
+
+<div>
+  <%= link_to "Show this study session", @study_session %> |
+  <%= link_to "Back to study sessions", study_sessions_path %>
+</div>

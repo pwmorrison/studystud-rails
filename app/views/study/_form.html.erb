@@ -1,0 +1,38 @@
+<%= form_with(model: study_session, url: "/study") do |form| %>
+  <% if study_session.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(study_session.errors.count, "error") %> prohibited this study_session from being saved:</h2>
+
+      <ul>
+        <% study_session.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-control w-full">
+    <%= form.label :title, style: "display: block", class: "label" %>
+    <%= form.text_field :title, class: "input input-bordered w-full" %>
+  </div>
+
+  <div class="form-control w-full">
+    <%= form.label :description, style: "display: block", class: "label" %>
+    <%= form.textarea :description, class: "textarea textarea-bordered h-24 w-full" %>
+  </div>
+
+  <div class="form-control w-full">
+    <%= form.label :duration, style: "display: block", class: "label" %>
+    <%= form.number_field :duration, class: "input input-bordered w-full" %>
+  </div>
+
+  <div class="form-control w-full">
+    <%= form.label :start_time, style: "display: block", class: "label" %>
+    <%= form.datetime_field :start_time, class: "input input-bordered w-full" %>
+  </div>
+
+
+  <div class="form-control mt-6">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
